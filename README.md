@@ -64,3 +64,19 @@ In Heroku, this can be done as follows:
 
 If this fails, you may need to manually add the postgres addon:
 `heroku addons:create heroku-postgresql`
+
+
+### Testing
+
+Tests can be run using `bundle exec rake test`.  Note that you may have to
+instantiate a test database and configure the database.yml to use template0
+or change template1 to use unicode or the tests to run.
+
+In addition to this, the guard-minitest gem is set up for installation in the
+sample_app. Running the `guard` command opens the guard cli where test will
+automatically be run based on the configuraiton of the Guardfile.
+
+*The guard file may leave behind a number of spring processes which no longer*
+*are needed once testing is done.  Search for these processes using*
+`ps aux | grep spring` *and kill them if need be. First try* `spring stop`.
+*If this fails, run* `pkill -9 -f spring` *to kill any lingering processes.*
