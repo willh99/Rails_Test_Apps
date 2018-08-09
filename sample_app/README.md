@@ -1,17 +1,17 @@
-# README
+# Ruby on Rails Tutorial: sample application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the sample application for the [*Ruby on Rails Tutorial*]
+(http://www.railstutorial.org/)
+by [Michael Hartl](http://www.michaelhartl.com/) with modifications
+by William Horowitz
 
-Things you may want to cover:
-
-* Ruby version
+* Ruby version = 2.4.0
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database = PostrgreSQL version 9.3.18
 
 * Database initialization
 
