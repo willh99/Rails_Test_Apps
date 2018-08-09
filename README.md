@@ -62,4 +62,5 @@ Remember that your database will need to be migrated within production as well.
 In Heroku, this can be done as follows:
 `heroku run rake db:migrate`
 
-  
+If this fails, you may need to manually add the postgres addon:
+`heroku addons:create heroku-postgresql`
