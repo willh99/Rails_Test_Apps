@@ -54,7 +54,7 @@ In some simple learning applications, it may be desirable to use scaffolds to
 generate templates for structures within the database. This can be done as such:
 `rails generate scaffold mytablename field1:integer field2:text`
 
-This will then gernate both the database configuration and a simple interface
+This will then generate both the database configuration and a simple interface
 where data can be imput from the browser. Remeber to migrate the database
 when adding scaffolds (and in general).  `bundle exec rake db:migrate`
 
