@@ -58,7 +58,9 @@ generate templates for structures within the database. This can be done as such:
 
 This will then generate both the database configuration and a simple interface
 where data can be imput from the browser. Remeber to migrate the database
-when adding scaffolds (and in general).  `bundle exec rake db:migrate`
+when adding scaffolds or adding models to run  `bundle exec rake db:migrate`
+
+* A database migration can be undone by running `bundle exec rake db:migrate`.
 
 Remember that your database will need to be migrated within production as well.
 In Heroku, this can be done as follows:
@@ -68,19 +70,23 @@ If this fails, you may need to manually add the postgres addon:
 `heroku addons:create heroku-postgresql`
 
 However, in development you will more likely wish to generate controllers from 
-whichyou can begin development of new pages rather than generating scaffolds 
+which you can begin development of new pages rather than generating scaffolds 
 that directly link to your database (that'd be a crazying thing to do in 
 production). This can be done using the following command:
 
 `rails generate controller [controller_name] [template_name]`
 
+New models can be generated using the following example (Note that models
+are automatically created with an integer ID field):
+
+`rails generate model User name:string email:string`
 
 ### Testing
 
 Tests can be run using `rails test` or to be safe `bundle exec rake test`.  
-Note that you may have to instantiate a test database and configure the 
+**Note that you may have to instantiate your database and configure the 
 database.yml to use template0 or change template1 to use unicode or the tests 
-to run.
+to run**.
 
 Individual tests can be run using the following command as an example:
 
@@ -94,6 +100,16 @@ Now guard tests can be created using the command
 `rails generate integration_test [test_name]`.  From there, test will be placed
 in `/test/integration` to be modified to your particular needs. Controller tests
 can be found in `/test/cotrollers`.
+
+When testing the contents and configuration of the database, it helps to not
+have to worry about any test values or features used during development. For
+this purpose, you can run `rails console --sandbox` so that any models are first
+created in memory before you push any changes to the database and any changes
+are rolledback when exiting the console.
+
+  * Create a empty model: `myvar = modelname.new`
+  * Check if a model is valid: `myvar.valid?`
+  * Insert model into database: `myvar.save`
 
 *The guard file may leave behind a number of spring processes which no longer*
 *are needed once testing is done.  Search for these processes using*
