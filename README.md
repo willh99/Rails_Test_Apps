@@ -50,6 +50,8 @@ $ git push heroku master
 *information on the proper configuration can be found* 
 [here](https://devcenter.heroku.com/articles/sqlite3)
 
+### Development
+
 In some simple learning applications, it may be desirable to use scaffolds to
 generate templates for structures within the database. This can be done as such:
 `rails generate scaffold mytablename field1:integer field2:text`
@@ -64,6 +66,12 @@ In Heroku, this can be done as follows:
 
 If this fails, you may need to manually add the postgres addon:
 `heroku addons:create heroku-postgresql`
+
+However, in development you will more likely wish to generate controllers from 
+whichyou can begin development of new pages rather than generating scaffolds 
+that directly link to your database (that'd be a crazying thing to do in 
+production). This can be done using the following command:
+`rails generate controller static_pages [controller_name] ...`
 
 
 ### Testing
