@@ -71,7 +71,7 @@ However, in development you will more likely wish to generate controllers from
 whichyou can begin development of new pages rather than generating scaffolds 
 that directly link to your database (that'd be a crazying thing to do in 
 production). This can be done using the following command:
-`rails generate controller static_pages [controller_name] ...`
+`rails generate controller [controller_name] [template_name]`
 
 
 ### Testing
@@ -80,9 +80,17 @@ Tests can be run using `bundle exec rake test`.  Note that you may have to
 instantiate a test database and configure the database.yml to use template0
 or change template1 to use unicode or the tests to run.
 
+Individual tests can be run using the following command as an example:
+`rails test:integration`.
+
 In addition to this, the guard-minitest gem is set up for installation in the
 sample_app. Running the `guard` command opens the guard cli where test will
 automatically be run based on the configuraiton of the Guardfile.
+
+Now guard tests can be created using the command 
+`rails generate integration_test [test_name]`.  From there, test will be placed
+in `/test/integration` to be modified to your particular needs. Controller tests
+can be found in `/test/cotrollers`.
 
 *The guard file may leave behind a number of spring processes which no longer*
 *are needed once testing is done.  Search for these processes using*
