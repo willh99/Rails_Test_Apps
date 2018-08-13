@@ -60,13 +60,10 @@ This will then generate both the database configuration and a simple interface
 where data can be imput from the browser. Remeber to migrate the database
 when adding scaffolds or adding models to run  `bundle exec rake db:migrate`
 
-* A database migration can be undone by running `bundle exec rake db:migrate`.
-
-Remember that your database will need to be migrated within production as well.
-In Heroku, this can be done as follows:
-`heroku run rake db:migrate`
-
-If this fails, you may need to manually add the postgres addon:
+  * A database migration can be undone by running `bundle exec rake db:migrate`.
+  * Remember that your database will need to be migrated within production as well.
+  In Heroku, this can be done as follows: `heroku run rake db:migrate`
+  *If this fails, you may need to manually add the postgres addon:
 `heroku addons:create heroku-postgresql`
 
 However, in development you will more likely wish to generate controllers from 
