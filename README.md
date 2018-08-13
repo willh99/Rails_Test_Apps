@@ -63,7 +63,7 @@ when adding scaffolds or adding models to run  `bundle exec rake db:migrate`
 * A database migration can be undone by running `bundle exec rake db:migrate`.
 * Remember that your database will need to be migrated within production as well.
 In Heroku, this can be done as follows: `heroku run rake db:migrate`
-*If this fails, you may need to manually add the postgres addon:
+* *If this fails, you may need to manually add the postgres addon:
 `heroku addons:create heroku-postgresql`
 
 However, in development you will more likely wish to generate controllers from 
@@ -96,7 +96,7 @@ automatically be run based on the configuraiton of the Guardfile.
 Now guard tests can be created using the command 
 `rails generate integration_test [test_name]`.  From there, test will be placed
 in `/test/integration` to be modified to your particular needs. Controller tests
-can be found in `/test/cotrollers`.
+can be found in `/test/cotrollers` while model tests are in `/test/models/`.
 
 When testing the contents and configuration of the database, it helps to not
 have to worry about any test values or features used during development. For
