@@ -71,16 +71,19 @@ However, in development you will more likely wish to generate controllers from
 whichyou can begin development of new pages rather than generating scaffolds 
 that directly link to your database (that'd be a crazying thing to do in 
 production). This can be done using the following command:
+
 `rails generate controller [controller_name] [template_name]`
 
 
 ### Testing
 
-Tests can be run using `bundle exec rake test`.  Note that you may have to
-instantiate a test database and configure the database.yml to use template0
-or change template1 to use unicode or the tests to run.
+Tests can be run using `rails test` or to be safe `bundle exec rake test`.  
+Note that you may have to instantiate a test database and configure the 
+database.yml to use template0 or change template1 to use unicode or the tests 
+to run.
 
 Individual tests can be run using the following command as an example:
+
 `rails test:integration`.
 
 In addition to this, the guard-minitest gem is set up for installation in the

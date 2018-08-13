@@ -27,6 +27,15 @@ textarea {
   text-align: center;
   h1 {
     margin-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+.hud {
+  background-color: gainsboro;
+  border-radius: 25px;
+  .btn-primary {
+    margin-bottom: 15px;
   }
 }
 
