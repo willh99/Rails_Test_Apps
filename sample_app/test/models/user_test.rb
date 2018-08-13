@@ -4,7 +4,8 @@ class UserTest < ActiveSupport::TestCase
   
   # Create a test user which will become invalid to test validation
   def setup
-    @user = User.new(name: "Example User", email: "user@example.come")
+    @user = User.new(name: "Example User", email: "user@example.come",
+                     password: "foobar", password_confirmation: "foobar")
   end
   
   test "should be valid" do
@@ -21,13 +22,23 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
+  test "password not blank" do
+    @user.password = @user.password_confirmation = " " * 8
+    assert_not @user.valid?
+  end
+  
   test "acceptable name length" do
-    @user.name = "a" *51
+    @user.name = "a" * 51
     assert_not @user.valid?
   end
   
   test "acceptable email length" do
     @user.email = "a" * 256
+    assert_not @user.valid?
+  end
+  
+  test "acceptable password length" do
+    @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
   
@@ -47,5 +58,12 @@ class UserTest < ActiveSupport::TestCase
       @user.email = invalid_address
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
     end
+  end
+  
+  test "email is unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
   end
 end
