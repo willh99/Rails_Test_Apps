@@ -100,13 +100,21 @@ can be found in `/test/cotrollers`.
 
 When testing the contents and configuration of the database, it helps to not
 have to worry about any test values or features used during development. For
-this purpose, you can run `rails console --sandbox` so that any models are first
-created in memory before you push any changes to the database and any changes
+this purpose, you can run `rails console --sandbox` so that models can be
+created in memory before you push any changes to the database and any db changes
 are rolledback when exiting the console.
 
-  * Create a empty model: `myvar = modelname.new`
+  * Create a empty model: `myvar = ModelName.new`
   * Check if a model is valid: `myvar.valid?`
-  * Insert model into database: `myvar.save`
+  * Insert memory model into database: `myvar.save`
+  * Create a model in the database: `ModelName.create`
+  * Destroy a model in the database: `myvar.destroy`
+  * Find model object in DB with ID: `ModelName.find(1)`
+  * Find model object in DB with field: `ModelName.find_by(name: "field_value")`
+  * Find first model: `ModelName.first`
+  * Get all rows: `ModelName.all`
+  * Save field change to DB: `myvar.reload.field_name`
+  * Update multiple models in a hash: `myvar.update_attribute(:name, "new name")`
 
 *The guard file may leave behind a number of spring processes which no longer*
 *are needed once testing is done.  Search for these processes using*
