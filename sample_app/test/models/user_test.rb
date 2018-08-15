@@ -33,7 +33,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "acceptable email length" do
-    @user.email = "a" * 256
+    @user.email = "a" * 244 + "@example.com"
     assert_not @user.valid?
   end
   
@@ -65,5 +65,12 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
+  end
+  
+  test "email addresses saved as lower-case" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @user.email = mixed_case_email
+    @user.save
+    assert_equal mixed_case_email.downcase, @user.reload.email
   end
 end
