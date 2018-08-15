@@ -120,3 +120,39 @@ are rolledback when exiting the console.
 *are needed once testing is done.  Search for these processes using*
 `ps aux | grep spring` *and kill them if need be. First try* `spring stop`.
 *If this fails, run* `pkill -9 -f spring` *to kill any lingering processes.*
+
+### Deployment
+
+Rails comes with three different environments for your app: *test, development,*
+*and production*. By default, the development environment is used.
+An environment object is kept by rails and holds various boolean and setter
+functions to tell which environment you are in or change the current
+environment. Here is how to check or swich the current environment.
+
+```
+$ rails console
+  Loading development environment
+  >> Rails.env
+  => "development"
+  >> Rails.env.development?
+  => true
+  >> Rails.env.test?
+  => false
+  
+$ rails console test
+  Loading test environment
+  >> Rails.env
+  => "test"
+  >> Rails.env.test?
+  => true
+```
+
+Rails server also has functionality to set the environment, although it is
+syntactically somewhat different.
+
+`$ rails server --environment production`
+
+However, if we want to run a production server, we need to pair it with a
+production database like so.
+
+`$ rails db:migrate RAILS_ENV=production`
