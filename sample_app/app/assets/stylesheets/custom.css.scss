@@ -4,6 +4,7 @@
 /* Variables and mix-ins*/
 $red: #fc0e0e;
 $gray-medium-light: #eaeaea;
+$gray-light: #acaeaf;
 
 @mixin box_sizing {
   -moz-box-sizing:     border-box;
@@ -72,6 +73,11 @@ p {
   line-height: 1.7em;
 }
 
+.credentials-header {
+  text-align: center;
+  padding-top: 15px;
+}
+
 /* header */
 
 #logo {
@@ -129,6 +135,17 @@ footer {
   @include box_sizing;
 }
 
+.sign-redirect {
+  text-align: center;
+  padding-top: 50px;
+  .btn {
+    padding: 20px;
+    font-size: 1.5em;
+    background-color: $gray-light;
+    border-color: $gray-light;
+  }
+}
+
 /* sidebar */
 
 aside {
@@ -167,13 +184,13 @@ aside {
 }
 
 /* forms */
-
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
+    border: 1px solid #bbb;;
+    margin-bottom: 15px;
+    width: 100%;
+    @include box_sizing;
+  }
+
 
 input {
   height: auto !important;

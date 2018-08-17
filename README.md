@@ -78,6 +78,8 @@ are automatically created with an integer ID field):
 
 `rails generate model User name:string email:string`
 
+Routes can be seen by runing `rails routes`
+
 ### Testing
 
 Tests can be run using `rails test` or to be safe `bundle exec rake test`.  
