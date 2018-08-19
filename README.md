@@ -158,3 +158,37 @@ However, if we want to run a production server, we need to pair it with a
 production database like so.
 
 `$ rails db:migrate RAILS_ENV=production`
+
+It should be noted that when pushing changes to production that require a
+database migration, it is a good idea to put Heroku into maintenance mode so
+that there can be no conflict with an untimely entry by a user.  Do this by
+running the following commands:
+
+```
+$ heroku maintenance:on
+  Enabling maintenance mode for ⬢ will-learns-ruby... done
+  
+$ git push heroku master
+  Counting objects: 25, done.
+  Delta compression using up to 8 threads.
+  Compressing objects: 100% (24/24), done.
+  Writing objects: 100% (25/25), 4.11 KiB | 1.37 MiB/s, done.
+  Total 25 (delta 15), reused 0 (delta 0)
+  remote: Compressing source files... done.
+  remote: Building source:
+  ...
+  Some more stuff here
+  ...
+  remote: Verifying deploy... done.
+  To https://git.heroku.com/will-learns-ruby.git
+   e56fe36..e0a7d3f  master -> master
+
+$ heroku run rake db:migrate
+  Running rake db:migrate on ⬢ will-learns-ruby... up, run.8129 (Free)
+  ...
+  Lots of SQL stuff here
+  ...
+  
+$ heroku maintenance:off
+  Disabling maintenance mode for ⬢ will-learns-ruby... done
+```
