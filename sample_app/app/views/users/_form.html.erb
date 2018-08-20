@@ -1,17 +1,21 @@
- <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+<% if local_assigns.has_key? :url %>
+  <%= form_for(@user, url: url) do |f| %>
+    <%= render 'shared/error_messages' %>
+  
+    <%= f.hidden_field :id %>
+  
+    <%= f.label :name %>
+    <%= f.text_field :name %>
       
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
       
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
       
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <%= f.label :password_confirmation, "Password Confirmation" %>
+    <%= f.password_field :password_confirmation %>
       
-      <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-      
-      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-    <% end %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <% end %>
+<% end %>

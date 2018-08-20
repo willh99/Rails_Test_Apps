@@ -88,8 +88,7 @@ database.yml to use template0 or change template1 to use unicode or the tests
 to run**.
 
 Individual tests can be run using the following command as an example:
-
-`rails test:integration`.
+`rails test:integration` to run integration tests.
 
 In addition to this, the guard-minitest gem is set up for installation in the
 sample_app. Running the `guard` command opens the guard cli where test will
