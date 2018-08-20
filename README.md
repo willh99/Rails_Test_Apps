@@ -80,6 +80,14 @@ are automatically created with an integer ID field):
 
 Routes can be seen by runing `rails routes`
 
+In testing and development, fake accounts can be seeded into the database
+using the code in `db/seeds.rb`.  To create seeded accounts, run:
+
+```
+$ rails db:migrate:reset
+$ rails db:seed
+```
+
 ### Testing
 
 Tests can be run using `rails test` or to be safe `bundle exec rake test`.  
