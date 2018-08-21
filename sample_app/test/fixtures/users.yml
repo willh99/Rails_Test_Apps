@@ -11,3 +11,20 @@ indiana:
   name: Indiana Jones
   email: indie@example.edu
   password_digest: <%= User.digest('password') %>
+  
+solo:
+  name: Han Solo
+  email: hsolo@falcon.com
+  password_digest: <%= User.digest('password') %>
+  
+rock:
+  name: Dwayne Johnson
+  email: therock@example.com
+  password_digest: <%= User.digest('password') %>
+  
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
