@@ -73,4 +73,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+  
+  test "redirect not activated user page to home" do 
+    @user.update_attribute(:activated, false)
+    get user_path(@user)
+    assert_redirected_to root_url
+    @user.update_attribute(:activated, true)
+    get user_path(@user)
+    assert_select "h1", @user.name
+  end
 end
