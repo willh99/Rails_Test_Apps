@@ -5,6 +5,7 @@
 $red: #fc0e0e;
 $gray-medium-light: #eaeaea;
 $gray-light: #999999;
+$bootstrap-blue: #428bca;
 
 @mixin box_sizing {
   -moz-box-sizing:     border-box;
@@ -230,6 +231,12 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.reset-btn {
+  background-color: white;
+  color: $bootstrap-blue;
+  margin-bottom: 10px;
 }
 
 /* Users index */

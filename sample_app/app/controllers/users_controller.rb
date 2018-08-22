@@ -8,11 +8,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    if params[:id]
-      @user = User.find(params[:id])
-    else
-      @user = User.find(params[:user][:id])
-    end
+    @user = User.find(params[:id])
     
     redirect_to root_url and return unless @user.activated == true
     #debugger
@@ -38,7 +34,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:user][:id])
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "You have successfully updated your profile"
       redirect_to @user
