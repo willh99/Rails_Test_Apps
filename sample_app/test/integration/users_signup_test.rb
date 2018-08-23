@@ -4,6 +4,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   
   def setup
     ActionMailer::Base.deliveries.clear
+    @user1 = users(:michael)
   end
   
   test "invalid signup information" do
@@ -43,5 +44,14 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert is_logged_in?
+  end
+  
+  test "cannot signup when already logged in" do
+    get signup_path
+    assert_template 'users/new'
+    get root_path
+    log_in_as(@user1)
+    get signup_path
+    assert_redirected_to root_url
   end
 end
