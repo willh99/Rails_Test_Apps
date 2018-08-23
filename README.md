@@ -199,3 +199,11 @@ $ heroku run rake db:migrate
 $ heroku maintenance:off
   Disabling maintenance mode for ⬢ will-learns-ruby... done
 ```
+
+### Other Consideration
+
+Certain functionality of the webapp will have to be reconfigured in order for
+a copy of the source code to work.  One example is the email configuration.  
+Email account information is stored securely in an application.yml using the 
+*figaro* gem.  Considering you've kept it in your Gemfile, it can be installed
+using `figaro install`.
