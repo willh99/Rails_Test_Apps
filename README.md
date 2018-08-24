@@ -222,7 +222,9 @@ $ heroku config:get SENDGRID_PASSWORD
 ```
 
 Additional Dependencies include (Assume latest versions):
+* Rails (v5.1 or above)
 * libcurl3
 * libcur3-gnutls
 * libcurl4-openssl-dev
 * ImageMagick
+* heroku (if deploying to Heroku)
