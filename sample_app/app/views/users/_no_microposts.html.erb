@@ -1,0 +1,8 @@
+<div class="no-posts">
+    <% if @user == current_user %>
+        <h1>Looks like you don't have any microposts.</h1>
+        <%= link_to "We can fix that!", root_url, class: "btn btn-lg btn-primary" %>
+    <% else %>
+        <h1>Looks like there aren't any posts here.</h1>
+    <% end %>
+</div>

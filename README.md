@@ -204,6 +204,19 @@ $ heroku maintenance:off
 
 Certain functionality of the webapp will have to be reconfigured in order for
 a copy of the source code to work.  One example is the email configuration.  
-Email account information is stored securely in an application.yml using the 
-*figaro* gem.  Considering you've kept it in your Gemfile, it can be installed
-using `figaro install`.
+Email account information is stored securely as an environment variable, so it
+is not available in source code.  The service used for this particular app is
+SendGrid, an extremely use to use application available on Heroku. To configure
+SendGrid, all you have to do (after validating your Heroku account with a 
+credit card and a text message code) is run:
+
+`$ heroku addons:create sendgrid:starter`
+
+Then using the configuraiton in `config/environments/production.rb`, simply
+push your code tp Heroku.  You can access your SendGrid config settings by
+running commands such as:
+
+```
+$ heroku config:get SENDGRID_USERNAME
+$ heroku config:get SENDGRID_PASSWORD
+```
