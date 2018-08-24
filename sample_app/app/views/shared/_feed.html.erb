@@ -3,4 +3,8 @@
     <%= render @feed_items %>
   </ol>
   <%= will_paginate @feed_items %>
+<% else %>
+  <div class="center">
+    <h1>Looks like you don't have any posts.</br>Why not make one?</h1>
+  </div>
 <% end %>

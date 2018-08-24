@@ -45,6 +45,9 @@ textarea {
     width: 75%;
     margin-left: 12.5%;
   }
+  .no-post-msg {
+    
+  }
 }
 
 .hud {
@@ -306,7 +309,7 @@ span.picture {
   }
 }
 
-.user-page-posts {
+.micropost-pag-area {
   background-color: $washed-out-orange;
   border-radius: 25px;
   .btn {
