@@ -221,6 +221,22 @@ $ heroku config:get SENDGRID_USERNAME
 $ heroku config:get SENDGRID_PASSWORD
 ```
 
+Pictures are also configured to be stored on an AWS S3 instance in production
+(check `app/uploaders/picture_uploader.rb` and
+`config/initializers/carrier_wave.rb` to get a better idea), so you'll have to
+set up environment variables for AWS IAM and S3 to get that working (sorry,
+this part costs real money in the order of like 5 cents a month).
+
+```
+$ heroku config:set S3_ACCESS_KEY=<access key>
+$ heroku config:set S3_SECRET_KEY=<secret key>
+$ heroku config:set S3_BUCKET=<bucket name>
+```
+
+If you're not really familiar with AWS and how to configure it, there is a
+really good tutorial for this exact usage case
+[right here](https://www.youtube.com/watch?v=afByHGIWKYQ).
+
 Additional Dependencies include (Assume latest versions):
 * Rails (v5.1 or above)
 * libcurl3
