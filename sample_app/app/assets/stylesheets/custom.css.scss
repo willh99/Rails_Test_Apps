@@ -309,4 +309,8 @@ span.picture {
 .user-page-posts {
   background-color: $washed-out-orange;
   border-radius: 25px;
+  .btn {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 }

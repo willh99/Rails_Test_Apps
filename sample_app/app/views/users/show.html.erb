@@ -7,6 +7,9 @@
         <%= @user.name %>
       </h1>
     </section>
+    <% if @user.microposts.any? && @user == current_user %>
+      <%= link_to "Create New Post", root_url, class: "btn btn-lg btn-primary" %>
+    <% end %>
   </aside>
   <div class="col-md-8 user-page-posts">
     <% if @user.microposts.any? %>
