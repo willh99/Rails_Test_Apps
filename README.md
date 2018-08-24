@@ -220,3 +220,9 @@ running commands such as:
 $ heroku config:get SENDGRID_USERNAME
 $ heroku config:get SENDGRID_PASSWORD
 ```
+
+Additional Dependencies include (Assume latest versions):
+* libcurl3
+* libcur3-gnutls
+* libcurl4-openssl-dev
+* ImageMagick

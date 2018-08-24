@@ -29,7 +29,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content, :picture)
     end
     
     # Check if a micropost belogs to the current user
