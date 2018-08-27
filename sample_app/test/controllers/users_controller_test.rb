@@ -82,4 +82,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_select "h1", @user.name
   end
+  
+  test "should redirect following when not logged in" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+    log_in_as(@user)
+    get following_user_path(@user)
+    assert_template 'users/show_follow'
+  end
+
+  test "should redirect followers when not logged in" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+    log_in_as(@user)
+    get followers_user_path(@user)
+    assert_template 'users/show_follow'
+  end
 end

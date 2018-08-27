@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  follower: michael
+  followed: solo
+
+two:
+  follower: michael
+  followed: rock
+
+three:
+  follower: solo
+  followed: michael
+
+four:
+  follower: indiana
+  followed: michael

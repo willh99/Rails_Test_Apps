@@ -7,11 +7,15 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
     <% if @user.microposts.any? && @user == current_user %>
       <%= link_to "Create New Post", root_url, class: "btn btn-lg btn-primary" %>
     <% end %>
   </aside>
   <div class="micropost-pag-area col-md-8">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
